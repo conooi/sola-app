@@ -71,7 +71,7 @@ For a live, real-time look at Sola's fluid pacing transitions, organic breathing
 > [!NOTE]
 > **Accessibility / Screen Reader Transcript:** The video above showcases Sola's end-to-end panic de-escalation flow. It starts on the minimalist Home dashboard, clicks 'I'm having a panic attack', checks 'Racing Heart' and 'Overwhelmed' on the body scan screen, engages in 60 seconds of double-inhale breathing, and saves a written reflection which automatically navigates to the Journal history log showing the saved card.
 
-### 🖼️ Feature Grid (High Accessibility Alt-Text)
+### 🖼️ Feature Grid
 
 <table border="0">
   <tr>

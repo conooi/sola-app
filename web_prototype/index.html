@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SereneStep — Your Grounding Space</title>
+  <!-- Modern Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Wrapper representing the Mobile Device Frame on Desktop -->
+  <div class="app-frame">
+    
+    <!-- ==================== SCREEN 1: HOME ==================== -->
+    <section id="screen-home" class="app-screen active">
+      <header class="screen-header">
+        <div class="brand">
+          <h1 class="app-title">SereneStep</h1>
+          <p class="app-subtitle">You are safe here.</p>
+        </div>
+        <button class="icon-btn" onclick="navigateTo('screen-reassurance')" aria-label="Help">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-content home-main">
+        <!-- Pulse Ring Breathing / Panic Button Container -->
+        <div class="panic-button-container">
+          <div class="breathing-glow-ring ring-3"></div>
+          <div class="breathing-glow-ring ring-2"></div>
+          <div class="breathing-glow-ring ring-1"></div>
+          <button class="panic-btn" id="main-panic-btn">
+            <span class="panic-btn-title">I'm having a panic attack</span>
+            <span class="panic-btn-subtitle">Tap to start grounding</span>
+          </button>
+        </div>
+
+        <!-- Immediate Relief Section -->
+        <section class="relief-section">
+          <h2 class="section-title">Immediate Relief</h2>
+          
+          <div class="relief-card" onclick="startBreathingOnly()">
+            <div class="card-icon-wrapper sage-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.8 19.6a3.8 3.8 0 0 1-5.6-3.7"></path>
+                <path d="M16 12a4 4 0 0 1-4 4"></path>
+                <path d="M12 4a8 8 0 0 1 8 8"></path>
+                <path d="M6 12a6 6 0 0 1 6-6"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Slow your breath</h3>
+              <p class="card-description">Follow the pulsing light above. Inhale for 4, hold for 4, exhale for 4.</p>
+            </div>
+          </div>
+
+          <div class="relief-card" onclick="startGroundingOnly()">
+            <div class="card-icon-wrapper warm-bg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Find 5 things</h3>
+              <p class="card-description">Look around. Can you name 5 things you can see right now?</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="screen-footer">
+        <p class="footer-prompt">Not sure what's happening?</p>
+        <button class="secondary-btn w-full" onclick="navigateTo('screen-symptoms')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Check my symptoms
+        </button>
+      </footer>
+    </section>
+
+    <!-- ==================== SCREEN 2: SYMPTOM CHECKER ==================== -->
+    <section id="screen-symptoms" class="app-screen">
+      <header class="screen-header justify-between">
+        <button class="icon-btn" onclick="navigateTo('screen-home')" aria-label="Go Back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="stepper-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="icon-btn" onclick="navigateTo('screen-home')" aria-label="Close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-content scrollable">
+        <div class="symptom-header">
+          <h2 class="screen-title text-center">Notice your body</h2>
+          <p class="screen-subtitle text-center">Gently tap what you're feeling right now.</p>
+        </div>
+
+        <section class="symptom-group">
+          <h3 class="symptom-group-title">Physical</h3>
+          <div class="pills-grid">
+            <button class="pill-btn" data-symptom="sym_heart_rapid">Racing heart</button>
+            <button class="pill-btn" data-symptom="sym_breath_short">Tight chest</button>
+            <button class="pill-btn" data-symptom="sym_breath_short">Short of breath</button>
+            <button class="pill-btn" data-symptom="sym_detached">Dizzy</button>
+            <button class="pill-btn" data-symptom="sym_trembling">Shaking</button>
+            <button class="pill-btn" data-symptom="sym_nausea">Nausea</button>
+          </div>
+        </section>
+
+        <section class="symptom-group">
+          <h3 class="symptom-group-title">Emotional</h3>
+          <div class="pills-grid">
+            <button class="pill-btn" data-symptom="sym_racing_thoughts">Overwhelmed</button>
+            <button class="pill-btn" data-symptom="sym_fear_control">Panic</button>
+            <button class="pill-btn" data-symptom="sym_detached">Disconnected</button>
+            <button class="pill-btn" data-symptom="sym_fear_control">Trapped</button>
+            <button class="pill-btn" data-symptom="sym_catastrophizing">Fear</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="screen-footer gap-3">
+        <button class="primary-btn w-full" id="begin-grounding-btn" disabled>Begin Grounding Flow</button>
+        <button class="text-link-btn" onclick="navigateTo('screen-reassurance')">I'm just browsing for now</button>
+      </footer>
+    </section>
+
+    <!-- ==================== SCREEN 3: GROUNDING FLOW ==================== -->
+    <section id="screen-grounding" class="app-screen">
+      <header class="screen-header justify-between">
+        <button class="icon-btn" onclick="navigateTo('screen-symptoms')" aria-label="Go Back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="flow-title-container">
+          <span class="flow-header-title">Grounding Flow</span>
+          <div class="stepper-dots small">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="navigateTo('screen-reassurance')" aria-label="Info">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-content scrollable">
+        <!-- breathing anchor section -->
+        <div class="grounding-breather-container">
+          <div class="breath-visualizer-small" id="breath-node">
+            <div class="breath-core"></div>
+            <div class="breath-ripple"></div>
+            <span class="breath-text" id="breath-instruction">Breathe In</span>
+          </div>
+        </div>
+
+        <div class="grounding-info">
+          <h2 class="grounding-title" id="grounding-title-text">5-4-3-2-1 Method</h2>
+          <p class="grounding-subtitle">Let's anchor ourselves in the present moment.</p>
+        </div>
+
+        <!-- 5-4-3-2-1 Interactive List -->
+        <div class="grounding-list" id="interactive-grounding-list">
+          
+          <div class="grounding-item completed" data-step="5">
+            <div class="item-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <div class="item-details">
+              <span class="item-label">5 THINGS</span>
+              <span class="item-desc">You can see around you</span>
+            </div>
+            <div class="item-status">
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="grounding-item active" data-step="4">
+            <div class="item-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+                <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+                <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+                <path d="M6 14v-3a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v11a4 4 0 0 0 4 4h9a5 5 0 0 0 5-5v-7a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2"></path>
+              </svg>
+            </div>
+            <div class="item-details">
+              <span class="item-label">4 THINGS</span>
+              <span class="item-desc">You can touch or feel</span>
+            </div>
+            <div class="item-status">
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <!-- Input Area for Interactive Grounding -->
+            <div class="item-input-drawer">
+              <p class="drawer-instruction">Focus on textures or temperatures: a cool desk, a soft shirt. Acknowledge them.</p>
+              <div class="drawer-inputs">
+                <input type="text" placeholder="Something cool..." class="grounding-input">
+                <input type="text" placeholder="Something soft..." class="grounding-input">
+                <input type="text" placeholder="Something solid..." class="grounding-input">
+                <input type="text" placeholder="Something textured..." class="grounding-input">
+                <button class="drawer-submit-btn" onclick="advanceGroundingStep(4)">I've found them</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grounding-item" data-step="3">
+            <div class="item-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            </div>
+            <div class="item-details">
+              <span class="item-label">3 THINGS</span>
+              <span class="item-desc">You can hear right now</span>
+            </div>
+            <div class="item-status">
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="grounding-item" data-step="2">
+            <div class="item-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.8 19.6a3.8 3.8 0 0 1-5.6-3.7"></path>
+                <path d="M16 12a4 4 0 0 1-4 4"></path>
+              </svg>
+            </div>
+            <div class="item-details">
+              <span class="item-label">2 THINGS</span>
+              <span class="item-desc">You can smell</span>
+            </div>
+            <div class="item-status">
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="grounding-item" data-step="1">
+            <div class="item-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="item-details">
+              <span class="item-label">1 THING</span>
+              <span class="item-desc">You can taste</span>
+            </div>
+            <div class="item-status">
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <footer class="screen-footer gap-3">
+        <button class="primary-btn w-full" onclick="navigateTo('screen-reflection')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          I feel calmer
+        </button>
+        <button class="text-link-btn" onclick="navigateTo('screen-reassurance')">Try a different exercise</button>
+      </footer>
+    </section>
+
+    <!-- ==================== SCREEN 4: REASSURANCE HUB ==================== -->
+    <section id="screen-reassurance" class="app-screen">
+      <header class="screen-header justify-between">
+        <button class="icon-btn" onclick="navigateTo('screen-home')" aria-label="Go Back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <span class="screen-header-title">Reassurance Hub</span>
+        <button class="icon-btn" aria-label="Like">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-content scrollable">
+        <div class="reassurance-hero">
+          <h2 class="reassurance-title">You are safe.</h2>
+          <p class="reassurance-subtitle">Panic is a physical response, not a physical danger. Let's remind your body of that.</p>
+        </div>
+
+        <section class="reassurance-section">
+          <h3 class="reassurance-section-title">Calming Truths <span class="swipe-hint">Swipe for more</span></h3>
+          <div class="truths-carousel">
+            
+            <div class="truth-card">
+              <div class="truth-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <p class="truth-text">This feeling is temporary. It has a beginning, a middle, and an end. You are in the middle right now, and the end is coming.</p>
+            </div>
+
+            <div class="truth-card">
+              <div class="truth-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <p class="truth-text">Your heart is beating fast to protect you, not to hurt you. It is a sign of a healthy, strong body.</p>
+            </div>
+
+            <div class="truth-card">
+              <div class="truth-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <p class="truth-text">You have survived 100% of your panic attacks. You are capable of moving through this one too.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="reassurance-section">
+          <h3 class="reassurance-section-title">Understanding the Body</h3>
+          
+          <!-- Accordion 1 -->
+          <div class="info-accordion" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+              <div class="header-left">
+                <svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>The Adrenaline Spike</span>
+              </div>
+              <svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>During panic, your brain releases adrenaline. It feels intense, but adrenaline is naturally reabsorbed by your body within minutes. This wave will break and dissolve naturally.</p>
+            </div>
+          </div>
+
+          <!-- Accordion 2 -->
+          <div class="info-accordion" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+              <div class="header-left">
+                <svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Hyperventilation</span>
+              </div>
+              <svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Feeling short of breath is often caused by taking in too much oxygen, not too little. Slowing down your exhale and prolonging it signals your nervous system that it is safe to relax.</p>
+            </div>
+          </div>
+
+          <!-- Accordion 3 -->
+          <div class="info-accordion" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+              <div class="header-left">
+                <svg class="info-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>The 'False Alarm'</span>
+              </div>
+              <svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>A panic attack is like a smoke detector going off because of toast—the alarm is extremely loud and scary, but there is no actual fire in the house. Your body is reacting to a false alarm.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <div class="reassurance-footer-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#768A7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>Take all the time you need.</span>
+        </div>
+      </main>
+
+      <footer class="screen-footer-panel">
+        <p class="panel-prompt">Ready to try a technique?</p>
+        <div class="btn-group-row">
+          <button class="secondary-btn w-1-2" onclick="startBreathingOnly()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+            </svg>
+            Breathing
+          </button>
+          <button class="primary-btn w-1-2" onclick="startGroundingOnly()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Grounding
+          </button>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ==================== SCREEN 5: REFLECTION / JOURNAL ==================== -->
+    <section id="screen-reflection" class="app-screen">
+      <header class="screen-header justify-between">
+        <button class="icon-btn" onclick="navigateTo('screen-grounding')" aria-label="Go Back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <span class="screen-header-title">Reflection</span>
+        <button class="icon-btn" aria-label="More Options">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="12" cy="5" r="1"></circle>
+            <circle cx="12" cy="19" r="1"></circle>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-content scrollable">
+        <div class="reflection-hero">
+          <div class="reflection-icon-circle">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#768A7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707"></path>
+            </svg>
+          </div>
+          <h2 class="reflection-title">The storm has passed</h2>
+          <p class="reflection-subtitle">You're safe now. Let's take a moment to ground what just happened.</p>
+        </div>
+
+        <!-- Reflection Section 1: Triggers -->
+        <section class="reflection-section">
+          <h3 class="reflection-section-title">What triggered this episode?</h3>
+          <div class="triggers-grid">
+            <button class="trigger-card" data-trigger="work">
+              <div class="trigger-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <span>Work Stress</span>
+            </button>
+
+            <button class="trigger-card" data-trigger="social">
+              <div class="trigger-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span>Social Setting</span>
+            </button>
+
+            <button class="trigger-card" data-trigger="health">
+              <div class="trigger-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <span>Health Worry</span>
+            </button>
+
+            <button class="trigger-card" data-trigger="unknown">
+              <div class="trigger-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <span>Unknown</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Reflection Section 2: Feelings -->
+        <section class="reflection-section">
+          <h3 class="reflection-section-title">How do you feel now?</h3>
+          <div class="pills-grid">
+            <button class="pill-btn-feeling" data-feeling="exhausted">Exhausted</button>
+            <button class="pill-btn-feeling" data-feeling="relieved">Relieved</button>
+            <button class="pill-btn-feeling" data-feeling="shaky">Shaky</button>
+            <button class="pill-btn-feeling" data-feeling="sad">Sad</button>
+            <button class="pill-btn-feeling" data-feeling="numb">Numb</button>
+            <button class="pill-btn-feeling" data-feeling="peaceful">Peaceful</button>
+          </div>
+        </section>
+
+        <!-- Reflection Section 3: Notes -->
+        <section class="reflection-section">
+          <h3 class="reflection-section-title">Notes for your future self</h3>
+          <div class="journal-input-wrapper">
+            <textarea id="journal-textarea" placeholder="Write down anything that helped you or anything you want to release..." rows="4"></textarea>
+          </div>
+        </section>
+
+        <!-- Dynamic AI Grounding Response Space -->
+        <div class="ai-response-container" id="ai-response-block">
+          <div class="ai-header">
+            <div class="ai-avatar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#768A7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <span class="ai-name">Writing Companion</span>
+          </div>
+          <p class="ai-text" id="ai-response-text">Typing a supportive reflection...</p>
+        </div>
+      </main>
+
+      <footer class="screen-footer gap-3">
+        <button class="primary-btn w-full" id="save-journal-btn">Save to Journal</button>
+        <button class="text-link-btn" onclick="navigateTo('screen-home')">I'm not ready to talk yet</button>
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- Fullscreen Immersive Breathing Overlay (Triggers when tapping the center panic button) -->
+  <div id="immersive-breather" class="breathing-overlay">
+    <button class="overlay-close-btn" onclick="stopBreathingOnly()" aria-label="Exit breathing exercise">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="overlay-content">
+      <div class="breath-visualizer-large" id="large-breath-circle">
+        <div class="breath-inner-circle"></div>
+        <span class="breathing-stage-text" id="large-breath-text">Inhale</span>
+        <span class="breathing-timer-count" id="large-breath-timer">4</span>
+      </div>
+      <div class="breathing-instructions-box">
+        <p class="breathing-guide-phrase" id="large-breath-instruction">Let your body settle. Follow the circle.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -59,6 +59,31 @@ A dedicated resource explaining the science of panic. It features:
 
 ---
 
+## 📱 App Walkthrough
+
+<table border="0">
+  <tr>
+    <td width="25%" align="center">
+      <p><b>1. Pulse Sanctuary</b></p>
+      <img src="assets/screen_home.png" width="200" alt="Home Screen"/>
+    </td>
+    <td width="25%" align="center">
+      <p><b>2. Notice Your Body</b></p>
+      <img src="assets/screen_symptoms.png" width="200" alt="Symptom Checker"/>
+    </td>
+    <td width="25%" align="center">
+      <p><b>3. Relief Library</b></p>
+      <img src="assets/screen_relief.png" width="200" alt="Relief Library"/>
+    </td>
+    <td width="25%" align="center">
+      <p><b>4. Reflect & Journal</b></p>
+      <img src="assets/screen_journal.png" width="200" alt="Journal Entry"/>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🎨 Design System & Aesthetics
 Sola is built on a custom design system meticulously engineered to soothe the nervous system:
 * **The Palette:** Built using **Muted Sage Greens** (associated with physical healing and tranquility) and **Slate Blues** (cognitive clarity and grounding) set against a warm, soft cream background.

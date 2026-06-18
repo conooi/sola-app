@@ -59,25 +59,37 @@ A dedicated resource explaining the science of panic. It features:
 
 ---
 
-## 📱 App Walkthrough
+## 📱 App Walkthrough & Media
+
+### 🎥 Video Walkthrough (.webm / .mp4)
+For a live, real-time look at Sola's fluid pacing transitions, organic breathing visualizers, and interactive state resets, watch our brief walkthrough:
+
+<p align="center">
+  <video src="assets/sola_walkthrough.webm" width="550" controls autoplay loop muted playsinline aria-label="Sola App Video Walkthrough: An interactive demonstration showing a user triggering an acute panic flow, selecting somatic symptoms, completing a paced physiological sigh breathing cycle, and logging their reflective journal entry to the history dashboard."></video>
+</p>
+
+> [!NOTE]
+> **Accessibility / Screen Reader Transcript:** The video above showcases Sola's end-to-end panic de-escalation flow. It starts on the minimalist Home dashboard, clicks 'I'm having a panic attack', checks 'Racing Heart' and 'Overwhelmed' on the body scan screen, engages in 60 seconds of double-inhale breathing, and saves a written reflection which automatically navigates to the Journal history log showing the saved card.
+
+### 🖼️ Feature Grid (High Accessibility Alt-Text)
 
 <table border="0">
   <tr>
     <td width="25%" align="center">
       <p><b>1. Pulse Sanctuary</b></p>
-      <img src="assets/screen_home.png" width="200" alt="Home Screen"/>
+      <img src="assets/screen_home.png" width="200" alt="Sola Home Screen: A soothing cream-colored interface featuring a central pulsing sage green circle that reads 'I'm having a panic attack. Tap to start grounding.' A helpline button is visible in the top right, and a 'Check my symptoms' option is at the bottom."/>
     </td>
     <td width="25%" align="center">
       <p><b>2. Notice Your Body</b></p>
-      <img src="assets/screen_symptoms.png" width="200" alt="Symptom Checker"/>
+      <img src="assets/screen_symptoms.png" width="200" alt="Sola Symptom Checker: A low-stimulation diagnostic screen titled 'Notice your body.' It displays pill-shaped checkable buttons for physical symptoms like Racing Heart, Tight Chest, and Shaking, and emotional symptoms like Overwhelmed, Panic, and Trapped."/>
     </td>
     <td width="25%" align="center">
       <p><b>3. Relief Library</b></p>
-      <img src="assets/screen_relief.png" width="200" alt="Relief Library"/>
+      <img src="assets/screen_relief.png" width="200" alt="Sola Relief Library: A vertical feed of evidence-based calming exercises. Displayed cards include Box Breathing, Physiological Sigh, Somatic Shaking, 5-4-3-2-1 Grounding, Comforting Truths, and Shock Your Senses (TIPP)."/>
     </td>
     <td width="25%" align="center">
       <p><b>4. Reflect & Journal</b></p>
-      <img src="assets/screen_journal.png" width="200" alt="Journal Entry"/>
+      <img src="assets/screen_journal.png" width="200" alt="Sola Daily Reflection Screen: A comprehensive check-in page with selectable mood pills, a horizontal slider to rate anxiety intensity, selectable cards for physical and external triggers, and a rich text input field for journaling reflections."/>
     </td>
   </tr>
 </table>

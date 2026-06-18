@@ -65,7 +65,7 @@ A dedicated resource explaining the science of panic. It features:
 For a live, real-time look at Sola's fluid pacing transitions, organic breathing visualizers, and interactive state resets, watch our brief walkthrough:
 
 <p align="center">
-  <video src="assets/sola_walkthrough.mov" width="550" controls autoplay loop muted playsinline aria-label="Sola App Video Walkthrough: An interactive demonstration showing a user triggering an acute panic flow, selecting somatic symptoms, completing a paced physiological sigh breathing cycle, and logging their reflective journal entry to the history dashboard."></video>
+  <video src="assets/sola_walkthrough.mp4" width="550" controls autoplay loop muted playsinline aria-label="Sola App Video Walkthrough: An interactive demonstration showing a user triggering an acute panic flow, selecting somatic symptoms, completing a paced physiological sigh breathing cycle, and logging their reflective journal entry to the history dashboard."></video>
 </p>
 
 > [!NOTE]
